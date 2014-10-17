@@ -21,7 +21,7 @@ class UrlConnection: NSObject {
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
         var error: NSErrorPointer = nil
         var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error: error)
-        if(error == nil) {
+        if(error != nil) {
             println("[ERROR] Can not get the data from the url.\(error)")
         }
         return data

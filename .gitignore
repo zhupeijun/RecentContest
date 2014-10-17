@@ -1,1 +1,5 @@
-RecentContest.xcodeproj/project.xcworkspace/xcuserdata/*
+.DS_Store
+RecentContest.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/UserInterfaceState.xcuserstate
+RecentContest.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/WorkspaceSettings.xcsettings
+RecentContest.xcodeproj/xcuserdata/*.xcuserdatad/
+RecentContest.xcodeproj/project.xcworkspace/xcshareddata/RecentContest.xccheckout

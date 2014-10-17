@@ -13,6 +13,7 @@
 		21578A0C19BB4B7800EC4DAE /* RecentContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21578A0B19BB4B7800EC4DAE /* RecentContestTests.swift */; };
 		21578A1619BC82EC00EC4DAE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21578A1519BC82EC00EC4DAE /* HomeViewController.swift */; };
 		21A19F5619E580B200F8F483 /* UrlConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A19F5519E580B200F8F483 /* UrlConnection.swift */; };
+		21D8378519EEB9B700D1B559 /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8378419EEB9B700D1B559 /* Contest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		21578A0B19BB4B7800EC4DAE /* RecentContestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentContestTests.swift; sourceTree = "<group>"; };
 		21578A1519BC82EC00EC4DAE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		21A19F5519E580B200F8F483 /* UrlConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UrlConnection.swift; path = Connection/UrlConnection.swift; sourceTree = "<group>"; };
+		21D8378419EEB9B700D1B559 /* Contest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contest.swift; path = Model/Contest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		215789F519BB4B7800EC4DAE /* RecentContest */ = {
 			isa = PBXGroup;
 			children = (
+				21D8378319EEB9A000D1B559 /* Model */,
 				21A19F5419E5804100F8F483 /* Connection */,
 				215789F819BB4B7800EC4DAE /* AppDelegate.swift */,
 				21578A1519BC82EC00EC4DAE /* HomeViewController.swift */,
@@ -118,6 +121,14 @@
 				21A19F5519E580B200F8F483 /* UrlConnection.swift */,
 			);
 			name = Connection;
+			sourceTree = "<group>";
+		};
+		21D8378319EEB9A000D1B559 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21D8378419EEB9B700D1B559 /* Contest.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				TargetAttributes = {
 					215789F219BB4B7800EC4DAE = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = QR8687DF9T;
 					};
 					21578A0419BB4B7800EC4DAE = {
 						CreatedOnToolsVersion = 6.0;
@@ -219,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D8378519EEB9B700D1B559 /* Contest.swift in Sources */,
 				215789F919BB4B7800EC4DAE /* AppDelegate.swift in Sources */,
 				21A19F5619E580B200F8F483 /* UrlConnection.swift in Sources */,
 				21578A1619BC82EC00EC4DAE /* HomeViewController.swift in Sources */,
@@ -337,9 +350,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RecentContest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -348,9 +365,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RecentContest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
