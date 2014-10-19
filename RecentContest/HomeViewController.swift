@@ -10,8 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let ShowDetailSegureIdentifier = "ShowContestDetail"
     let url = "http://contests.acmicpc.info/contests.json"
     var contests: NSMutableArray = []
+    var selectedRow = -1
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -55,6 +57,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return contests.count;
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedRow = indexPath.row
+        self.performSegueWithIdentifier(ShowDetailSegureIdentifier, sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func loadContestInformation() {
         var connection = UrlConnection(url: url)
         connection.getJSONArrayAsync({ result in
@@ -69,6 +77,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender:sender)
+        if(segue.identifier == ShowDetailSegureIdentifier) {
+            var detailVC = segue.destinationViewController as DetailViewController
+            detailVC.contest = contests[self.selectedRow] as? Contest
+        }
     }
     
     func startTimer() {
