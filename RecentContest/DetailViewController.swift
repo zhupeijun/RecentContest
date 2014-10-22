@@ -61,4 +61,19 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func openOfficialSite(sender: UIButton) {
+        if(contest != nil) {
+            UIApplication.sharedApplication().openURL(NSURL(string: contest!.link)!)
+        }
+    }
+    @IBAction func enableNotification(sender: AnyObject) {
+        var notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        notification.timeZone = NSTimeZone.localTimeZone()
+        notification.alertBody = "The contest is comming!"
+        notification.alertAction = "Open"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
 }

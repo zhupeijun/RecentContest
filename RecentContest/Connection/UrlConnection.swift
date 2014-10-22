@@ -17,7 +17,7 @@ class UrlConnection: NSObject {
     }
     
     func getUrlData() -> NSData? {
-        var request = NSURLRequest(URL: NSURL(string: url))
+        var request = NSURLRequest(URL: NSURL(string: url)!)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
         var error: NSErrorPointer = nil
         var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error: error)

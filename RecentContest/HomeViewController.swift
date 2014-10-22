@@ -103,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         
-        let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let calendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
         let dateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: today)
         let weekDay = dateComponents.weekday
         

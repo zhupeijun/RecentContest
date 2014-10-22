@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //Show notification permision alert view.
+        if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+            application.registerUserNotificationSettings( UIUserNotificationSettings(
+                forTypes: UIUserNotificationType.Sound |
+                    UIUserNotificationType.Alert |
+                    UIUserNotificationType.Badge, categories: nil))
+        }
         return true
     }
 
