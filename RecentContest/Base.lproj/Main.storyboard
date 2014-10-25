@@ -388,7 +388,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xp8-sk-evl">
-                                <rect key="frame" x="382" y="108" width="202" height="30"/>
+                                <rect key="frame" x="199" y="108" width="202" height="30"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.61960784310000006" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="202" id="3MN-pG-uyL"/>
@@ -453,9 +453,15 @@
                             <constraint firstItem="CKu-LC-PBU" firstAttribute="top" secondItem="WQ8-y4-v84" secondAttribute="bottom" id="jpx-kZ-efE"/>
                             <constraint firstItem="0fQ-j5-LpH" firstAttribute="leading" secondItem="CHc-KC-jk3" secondAttribute="leadingMargin" id="nTI-sP-fcF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xp8-sk-evl" secondAttribute="trailing" id="q52-rR-Nid"/>
+                            <constraint firstAttribute="centerX" secondItem="xp8-sk-evl" secondAttribute="centerX" id="qf8-g6-Jqf"/>
                             <constraint firstItem="0fQ-j5-LpH" firstAttribute="top" secondItem="xp8-sk-evl" secondAttribute="bottom" id="u6R-fC-xgw"/>
                             <constraint firstAttribute="bottomMargin" secondItem="bDC-81-WPa" secondAttribute="bottom" constant="8" id="wWN-9U-DeO"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="q52-rR-Nid"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="accessLabel" destination="K9W-Tb-7Cp" id="6EC-Dl-CXp"/>
@@ -466,7 +472,9 @@
                         <outlet property="hoursView" destination="BDB-Bb-1O4" id="C5d-sZ-cun"/>
                         <outlet property="minutesLabel" destination="Est-9S-uRL" id="3wd-Jw-BcA"/>
                         <outlet property="minutesView" destination="vCn-al-kmn" id="goO-dC-hzC"/>
+                        <outlet property="notifyTextLabel" destination="98H-El-yJc" id="bMT-Zj-znb"/>
                         <outlet property="ojLabel" destination="jr2-W0-mUA" id="UVG-w0-87K"/>
+                        <outlet property="promoteTextLabel" destination="Amq-A4-6gs" id="elM-dc-sXR"/>
                         <outlet property="switcher" destination="VX1-5W-jzX" id="Hl4-LL-vH9"/>
                         <outlet property="titleLabel" destination="xqR-ZR-7zM" id="vwl-78-8F2"/>
                     </connections>

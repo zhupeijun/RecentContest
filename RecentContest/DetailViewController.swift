@@ -26,10 +26,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var gotoWebPageButton: UIButton!
     @IBOutlet weak var switcher: UISwitch!
+    @IBOutlet weak var notifyTextLabel: UILabel!
+    @IBOutlet weak var promoteTextLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gotoWebPageButton.layer.cornerRadius = 5
         daysView.layer.cornerRadius = 10
         hoursView.layer.cornerRadius = 10
         minutesView.layer.cornerRadius = 10
@@ -52,7 +55,10 @@ class DetailViewController: UIViewController {
     
     @IBAction func openOfficialSite(sender: UIButton) {
         if(contest != nil) {
-            UIApplication.sharedApplication().openURL(NSURL(string: contest!.link)!)
+            let link = contest!.link
+            if(link != "") {
+                UIApplication.sharedApplication().openURL(NSURL(string: contest!.link)!)
+            }
         }
     }
     @IBAction func enableNotification(sender: AnyObject) {
@@ -83,13 +89,21 @@ class DetailViewController: UIViewController {
             
             if(startTime != nil) {
                 var current = NSDate()
-                //Fix me: when the contest is expired.
-                var interval = UInt(startTime!.timeIntervalSinceDate(current))
-                var days = interval / 86400
-                interval = interval - days * 86400
-                var hours = interval / 3600
-                interval = interval - hours * 3600
-                var minutes = interval / 60
+                var interval = Int(startTime!.timeIntervalSinceDate(current))
+                var days = 0
+                var hours = 0
+                var minutes = 0
+                
+                if(interval > 0) {
+                    days = interval / 86400
+                    interval = interval - days * 86400
+                    hours = interval / 3600
+                    interval = interval - hours * 3600
+                    minutes = interval / 60
+                } else {
+                    // if the contes tis expired, then disable the notification switcher
+                    disableSwitcher()
+                }
                 
                 self.daysLabel.text = String(days)
                 self.hoursLabel.text = String(hours)
@@ -124,5 +138,12 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func disableSwitcher() {
+        switcher.enabled = false
+        switcher.alpha = 0.2
+        notifyTextLabel.alpha = 0.2
+        promoteTextLabel.alpha = 0.2
     }
 }
