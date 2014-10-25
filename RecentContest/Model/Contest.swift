@@ -47,6 +47,13 @@ class Contest: NSObject {
         userInfo.setValue(week, forKey: kWeek)
         return userInfo
     }
+    
+    func getStartDateTime() -> NSDate? {
+        var dateFormater = NSDateFormatter()
+        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let startDateTime = dateFormater.dateFromString(startTime)
+        return startDateTime
+    }
 }
 
 let kAccess = "access"

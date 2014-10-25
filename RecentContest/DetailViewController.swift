@@ -83,10 +83,7 @@ class DetailViewController: UIViewController {
             ojLabel.text = contest!.oj
             accessLabel.text = contest!.access
             
-            var dateFormater = NSDateFormatter()
-            dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            var startTime = dateFormater.dateFromString(contest!.startTime)
-            
+            let startTime = contest!.getStartDateTime()
             if(startTime != nil) {
                 var current = NSDate()
                 var interval = Int(startTime!.timeIntervalSinceDate(current))
@@ -114,15 +111,18 @@ class DetailViewController: UIViewController {
     
     func scheduleNotification() {
         if(contest != nil) {
-            var notification = UILocalNotification()
-            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
-            notification.timeZone = NSTimeZone.localTimeZone()
-            notification.alertBody = contest!.name
-            notification.alertAction = "Open"
-            notification.soundName = UILocalNotificationDefaultSoundName
-            notification.userInfo = contest!.toUserInfo()
-            println(notification.userInfo)
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            let startDateTime = contest!.getStartDateTime()
+            if(startDateTime != nil) {
+                var notification = UILocalNotification()
+                notification.fireDate = startDateTime
+                notification.timeZone = NSTimeZone.localTimeZone()
+                notification.alertBody = contest!.name
+                notification.alertAction = "Open"
+                notification.soundName = UILocalNotificationDefaultSoundName
+                notification.userInfo = contest!.toUserInfo()
+                println(notification.userInfo)
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            }
         }
     }
     
