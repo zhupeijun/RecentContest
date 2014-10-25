@@ -395,7 +395,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Oki-Lf-MUB"/>
                                 </constraints>
                                 <state key="normal" title="Go to the official site">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -405,7 +405,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fQ-j5-LpH">
                                 <rect key="frame" x="16" y="138" width="568" height="100"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VX1-5W-jzX">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VX1-5W-jzX">
                                         <rect key="frame" x="511" y="34" width="51" height="31"/>
                                         <connections>
                                             <action selector="enableNotification:" destination="ZpW-oF-YkP" eventType="valueChanged" id="2AJ-8e-UL5"/>
@@ -467,7 +467,7 @@
                         <outlet property="minutesLabel" destination="Est-9S-uRL" id="3wd-Jw-BcA"/>
                         <outlet property="minutesView" destination="vCn-al-kmn" id="goO-dC-hzC"/>
                         <outlet property="ojLabel" destination="jr2-W0-mUA" id="UVG-w0-87K"/>
-                        <outlet property="switcher" destination="T4b-eb-nQe" id="6Fc-Dc-CI8"/>
+                        <outlet property="switcher" destination="VX1-5W-jzX" id="Hl4-LL-vH9"/>
                         <outlet property="titleLabel" destination="xqR-ZR-7zM" id="vwl-78-8F2"/>
                     </connections>
                 </viewController>

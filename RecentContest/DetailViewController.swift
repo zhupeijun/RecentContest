@@ -24,8 +24,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
-    @IBOutlet weak var switcher: NSLayoutConstraint!
     @IBOutlet weak var gotoWebPageButton: UIButton!
+    @IBOutlet weak var switcher: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,16 +56,10 @@ class DetailViewController: UIViewController {
         }
     }
     @IBAction func enableNotification(sender: AnyObject) {
-        if(contest != nil) {
-            var notification = UILocalNotification()
-            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
-            notification.timeZone = NSTimeZone.localTimeZone()
-            notification.alertBody = contest!.name
-            notification.alertAction = "Open"
-            notification.soundName = UILocalNotificationDefaultSoundName
-            notification.userInfo = contest!.toUserInfo()
-            println(notification.userInfo)
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        if(switcher.on == true) {
+            scheduleNotification()
+        } else {
+            cancelNotification()
         }
     }
     
@@ -100,6 +94,34 @@ class DetailViewController: UIViewController {
                 self.daysLabel.text = String(days)
                 self.hoursLabel.text = String(hours)
                 self.minutesLabel.text = String(minutes)
+            }
+        }
+    }
+    
+    func scheduleNotification() {
+        if(contest != nil) {
+            var notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+            notification.timeZone = NSTimeZone.localTimeZone()
+            notification.alertBody = contest!.name
+            notification.alertAction = "Open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = contest!.toUserInfo()
+            println(notification.userInfo)
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
+    func cancelNotification() {
+        let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+        for item in notifications {
+            let notification = item as UILocalNotification
+            let userInfo = notification.userInfo
+            if(userInfo != nil) {
+                let contest = Contest(dic: userInfo!)
+                if(self.contest != nil && self.contest!.id == contest.id) {
+                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                }
             }
         }
     }
