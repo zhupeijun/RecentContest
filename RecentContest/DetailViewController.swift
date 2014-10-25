@@ -9,8 +9,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
+
+    let kNotificationIdKey = "kNotificationIdKey"
     var contest: Contest? = nil
+    var isFromLocalNotification: Bool = false
 
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,6 +34,50 @@ class DetailViewController: UIViewController {
         hoursView.layer.cornerRadius = 10
         minutesView.layer.cornerRadius = 10
         
+        updateContestInfo()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localNotificationUpdate:", name: kLocalNotificationUpdate, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    @IBAction func openOfficialSite(sender: UIButton) {
+        if(contest != nil) {
+            UIApplication.sharedApplication().openURL(NSURL(string: contest!.link)!)
+        }
+    }
+    @IBAction func enableNotification(sender: AnyObject) {
+        if(contest != nil) {
+            var notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 10)
+            notification.timeZone = NSTimeZone.localTimeZone()
+            notification.alertBody = contest!.name
+            notification.alertAction = "Open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = contest!.toUserInfo()
+            println(notification.userInfo)
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
+    func localNotificationUpdate(notification: NSNotification) {
+        let userInfo = notification.object as NSDictionary?
+        if(userInfo != nil) {
+            contest = Contest(dic: userInfo!)
+            updateContestInfo()
+        }
+    }
+    
+    func updateContestInfo() {
         if(contest != nil) {
             titleLabel.text = contest!.name
             ojLabel.text = contest!.oj
@@ -43,6 +89,7 @@ class DetailViewController: UIViewController {
             
             if(startTime != nil) {
                 var current = NSDate()
+                //Fix me: when the contest is expired.
                 var interval = UInt(startTime!.timeIntervalSinceDate(current))
                 var days = interval / 86400
                 interval = interval - days * 86400
@@ -55,25 +102,5 @@ class DetailViewController: UIViewController {
                 self.minutesLabel.text = String(minutes)
             }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func openOfficialSite(sender: UIButton) {
-        if(contest != nil) {
-            UIApplication.sharedApplication().openURL(NSURL(string: contest!.link)!)
-        }
-    }
-    @IBAction func enableNotification(sender: AnyObject) {
-        var notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 10)
-        notification.timeZone = NSTimeZone.localTimeZone()
-        notification.alertBody = "The contest is comming!"
-        notification.alertAction = "Open"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
 }

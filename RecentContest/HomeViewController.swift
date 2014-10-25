@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let url = "http://contests.acmicpc.info/contests.json"
     var contests: NSMutableArray = []
     var selectedRow = -1
+    var contest: Contest? = nil
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -27,6 +28,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localNotificationUpdate:", name: kLocalNotificationUpdate, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -71,7 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let n = array.count
                 self.contests.removeAllObjects()
                 for i in 0..<n {
-                    var contest = Contest.createWithDictionary(array[i] as NSDictionary)
+                    var contest = Contest(dic: array[i] as NSDictionary)
                     self.contests.addObject(contest)
                 }
                 self.tableView.reloadData()
@@ -83,7 +92,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.prepareForSegue(segue, sender:sender)
         if(segue.identifier == ShowDetailSegureIdentifier) {
             var detailVC = segue.destinationViewController as DetailViewController
-            detailVC.contest = contests[self.selectedRow] as? Contest
+            if(self.contest == nil) {
+                detailVC.contest = contests[self.selectedRow] as? Contest
+            } else {
+                detailVC.contest = self.contest
+                self.contest = nil
+            }
         }
     }
     
@@ -112,5 +126,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.currentTimeLabel.text = dateString
         self.currentWeekLabel.text = weekString
+    }
+    
+    func localNotificationUpdate(notification: NSNotification) {
+        let userInfo = notification.object as NSDictionary?
+        if(userInfo != nil) {
+            self.contest = Contest(dic: userInfo!)
+            self.performSegueWithIdentifier(ShowDetailSegureIdentifier, sender: self)
+        }
     }
 }

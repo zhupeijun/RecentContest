@@ -8,7 +8,9 @@
 
 import UIKit
 
+
 class Contest: NSObject {
+    
     var access: String = ""
     var id: String = ""
     var link: String = ""
@@ -20,19 +22,37 @@ class Contest: NSObject {
     override init() {
         super.init()
     }
-    
-    class func createWithDictionary(var dic: NSDictionary) -> Contest {
-        var contest = Contest()
-        contest.access = dic["access"] as String
-        contest.id = dic["id"] as String
-        contest.link = dic["link"] as String
-        contest.name = dic["name"] as String
-        contest.oj = dic["oj"] as String
-        contest.startTime = dic["start_time"] as String
-        contest.week = dic["week"] as String
-        if(contest.access == "") {
-            contest.access = "Public"
+
+    init (dic: NSDictionary) {
+        access = dic[kAccess] as String
+        id = dic[kId] as String
+        link = dic[kLink] as String
+        name = dic[kName] as String
+        oj = dic[kOj] as String
+        startTime = dic[kStartTime] as String
+        week = dic[kWeek] as String
+        if(access == "") {
+            access = "Public"
         }
-        return contest
+    }
+    
+    func toUserInfo() -> NSDictionary {
+        var userInfo = NSMutableDictionary()
+        userInfo.setValue(access, forKey: kAccess)
+        userInfo.setValue(id, forKey: kId)
+        userInfo.setValue(link, forKey: kLink)
+        userInfo.setValue(name, forKey: kName)
+        userInfo.setValue(oj, forKey: kOj)
+        userInfo.setValue(startTime, forKey: kStartTime)
+        userInfo.setValue(week, forKey: kWeek)
+        return userInfo
     }
 }
+
+let kAccess = "access"
+let kId = "id"
+let kLink = "link"
+let kName = "name"
+let kOj = "oj"
+let kStartTime = "start_time"
+let kWeek = "week"
