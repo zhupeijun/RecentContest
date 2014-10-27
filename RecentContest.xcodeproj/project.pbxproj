@@ -13,6 +13,7 @@
 		21578A0019BB4B7800EC4DAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215789FF19BB4B7800EC4DAE /* Images.xcassets */; };
 		21578A0C19BB4B7800EC4DAE /* RecentContestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21578A0B19BB4B7800EC4DAE /* RecentContestTests.swift */; };
 		21578A1619BC82EC00EC4DAE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21578A1519BC82EC00EC4DAE /* HomeViewController.swift */; };
+		217CBDDC19FE8D6D00BFEFFF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CBDDB19FE8D6D00BFEFFF /* SettingsTableViewController.swift */; };
 		21A19F5619E580B200F8F483 /* UrlConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A19F5519E580B200F8F483 /* UrlConnection.swift */; };
 		21D8378519EEB9B700D1B559 /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8378419EEB9B700D1B559 /* Contest.swift */; };
 		21EE3DA519FBB43F002EBB46 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21EE3DA419FBB43F002EBB46 /* settings@2x.png */; };
@@ -41,6 +42,7 @@
 		21578A0A19BB4B7800EC4DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21578A0B19BB4B7800EC4DAE /* RecentContestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentContestTests.swift; sourceTree = "<group>"; };
 		21578A1519BC82EC00EC4DAE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		217CBDDB19FE8D6D00BFEFFF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		21A19F5519E580B200F8F483 /* UrlConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UrlConnection.swift; path = Connection/UrlConnection.swift; sourceTree = "<group>"; };
 		21D8378419EEB9B700D1B559 /* Contest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contest.swift; path = Model/Contest.swift; sourceTree = "<group>"; };
 		21EE3DA419FBB43F002EBB46 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				21578A1519BC82EC00EC4DAE /* HomeViewController.swift */,
 				2126267E19F2C8E000031096 /* DetailViewController.swift */,
+				217CBDDB19FE8D6D00BFEFFF /* SettingsTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				21D8378519EEB9B700D1B559 /* Contest.swift in Sources */,
 				215789F919BB4B7800EC4DAE /* AppDelegate.swift in Sources */,
+				217CBDDC19FE8D6D00BFEFFF /* SettingsTableViewController.swift in Sources */,
 				2126267F19F2C8E000031096 /* DetailViewController.swift in Sources */,
 				21A19F5619E580B200F8F483 /* UrlConnection.swift in Sources */,
 				21578A1619BC82EC00EC4DAE /* HomeViewController.swift in Sources */,

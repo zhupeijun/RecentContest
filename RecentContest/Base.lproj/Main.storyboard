@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="-62" y="156"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings Table View Controller-->
         <scene sceneID="Jqp-Ki-uHx">
             <objects>
-                <tableViewController id="yoP-VZ-aWD" sceneMemberID="viewController">
+                <tableViewController id="yoP-VZ-aWD" customClass="SettingsTableViewController" customModule="RecentContest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lYV-rr-k8a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
                         <sections>
                             <tableViewSection id="LcV-Lt-xlb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0le-Pp-kd3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="0le-Pp-kd3">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0le-Pp-kd3" id="F70-Pd-Vwu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -251,7 +251,7 @@
                             </tableViewSection>
                             <tableViewSection id="mvG-zp-90n">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Bz0-48-fEo">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Bz0-48-fEo">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bz0-48-fEo" id="6VN-Iz-Wk4">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -276,7 +276,7 @@
                                             <segue destination="IEf-0U-iSB" kind="show" id="XBf-FT-0IG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="556-xu-AP7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="556-xu-AP7">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="556-xu-AP7" id="8Y8-f4-7cu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -302,7 +302,7 @@
                             </tableViewSection>
                             <tableViewSection id="L5g-8O-YAQ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UPV-LJ-OXG">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="UPV-LJ-OXG">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UPV-LJ-OXG" id="TXw-GQ-XO9">
                                             <autoresizingMask key="autoresizingMask"/>
