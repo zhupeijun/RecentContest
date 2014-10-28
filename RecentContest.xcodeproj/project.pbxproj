@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2116B80419FFC1CF0073F436 /* TimeSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116B80319FFC1CF0073F436 /* TimeSelectTableViewController.swift */; };
+		2116B80619FFC40A0073F436 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2116B80519FFC40A0073F436 /* check@2x.png */; };
 		2126267F19F2C8E000031096 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126267E19F2C8E000031096 /* DetailViewController.swift */; };
 		215789F919BB4B7800EC4DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215789F819BB4B7800EC4DAE /* AppDelegate.swift */; };
 		215789FE19BB4B7800EC4DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215789FC19BB4B7800EC4DAE /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2116B80319FFC1CF0073F436 /* TimeSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectTableViewController.swift; sourceTree = "<group>"; };
+		2116B80519FFC40A0073F436 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		2126267E19F2C8E000031096 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		215789F319BB4B7800EC4DAE /* RecentContest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecentContest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215789F719BB4B7800EC4DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				21578A1519BC82EC00EC4DAE /* HomeViewController.swift */,
 				2126267E19F2C8E000031096 /* DetailViewController.swift */,
 				217CBDDB19FE8D6D00BFEFFF /* SettingsTableViewController.swift */,
+				2116B80319FFC1CF0073F436 /* TimeSelectTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 		2126268019F3C67800031096 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2116B80519FFC40A0073F436 /* check@2x.png */,
 				21EE3DA819FBB51C002EBB46 /* settings@1x.png */,
 				21EE3DA619FBB499002EBB46 /* settings@3x.png */,
 				21EE3DA419FBB43F002EBB46 /* settings@2x.png */,
@@ -248,6 +254,7 @@
 				21EE3DA719FBB499002EBB46 /* settings@3x.png in Resources */,
 				21EE3DA919FBB51C002EBB46 /* settings@1x.png in Resources */,
 				21578A0019BB4B7800EC4DAE /* Images.xcassets in Resources */,
+				2116B80619FFC40A0073F436 /* check@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +278,7 @@
 				2126267F19F2C8E000031096 /* DetailViewController.swift in Sources */,
 				21A19F5619E580B200F8F483 /* UrlConnection.swift in Sources */,
 				21578A1619BC82EC00EC4DAE /* HomeViewController.swift in Sources */,
+				2116B80419FFC1CF0073F436 /* TimeSelectTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -246,6 +246,9 @@
                                                 <constraint firstItem="ojD-7V-ffa" firstAttribute="leading" secondItem="F70-Pd-Vwu" secondAttribute="leadingMargin" constant="5" id="do0-9e-gV4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="wvN-6b-HK9" kind="show" id="T1A-Ah-e3m"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -336,6 +339,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HP-82-phu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="622" y="-574"/>
+        </scene>
+        <!--Time Select Table View Controller-->
+        <scene sceneID="2Ds-Dd-Y9G">
+            <objects>
+                <tableViewController id="wvN-6b-HK9" customClass="TimeSelectTableViewController" customModule="RecentContest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IA0-OW-KcO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" rowHeight="44" id="PD3-5d-BeU">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PD3-5d-BeU" id="1X6-ll-QfS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inf-CH-Vrg">
+                                            <rect key="frame" x="13" y="11" width="200" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="EzW-BI-npb"/>
+                                                <constraint firstAttribute="width" constant="200" id="LBj-Ep-lqX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="HNq-pc-IYT">
+                                            <rect key="frame" x="562" y="9.5" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="Va2-GW-jX7"/>
+                                                <constraint firstAttribute="height" constant="25" id="YYN-J5-bnl"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="inf-CH-Vrg" firstAttribute="leading" secondItem="1X6-ll-QfS" secondAttribute="leadingMargin" constant="5" id="1AA-W8-sSM"/>
+                                        <constraint firstItem="HNq-pc-IYT" firstAttribute="trailing" secondItem="1X6-ll-QfS" secondAttribute="trailingMargin" constant="-5" id="9xI-lK-QqL"/>
+                                        <constraint firstAttribute="centerY" secondItem="HNq-pc-IYT" secondAttribute="centerY" id="cPS-Lo-2on"/>
+                                        <constraint firstAttribute="centerY" secondItem="inf-CH-Vrg" secondAttribute="centerY" id="kMI-a6-NYk"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wvN-6b-HK9" id="uRv-ZZ-goS"/>
+                            <outlet property="delegate" destination="wvN-6b-HK9" id="eR8-Mx-k7n"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bu-21-fKF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="-1293"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="M5B-KS-48x">
@@ -751,6 +805,7 @@ You can check the source code of this app in the github. </string>
         </scene>
     </scenes>
     <resources>
+        <image name="check.png" width="128" height="128"/>
         <image name="settings.png" width="22" height="22"/>
     </resources>
 </document>
