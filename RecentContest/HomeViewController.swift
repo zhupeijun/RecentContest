@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var contests: NSMutableArray = []
     var selectedRow = -1
     var contest: Contest? = nil
+    var refreshControl: UIRefreshControl?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentTimeLabel: UILabel!
@@ -22,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRefreshControl()
         loadContestInformation()
         startTimer()
     }
@@ -84,6 +86,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.contests.addObject(contest)
                 }
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
         })
     }
@@ -134,5 +137,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.contest = Contest(dic: userInfo!)
             self.performSegueWithIdentifier(ShowDetailSegureIdentifier, sender: self)
         }
+    }
+    
+    func addRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refreshTableView", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl!)
+    }
+    
+    func refreshTableView() {
+        loadContestInformation()
     }
 }
