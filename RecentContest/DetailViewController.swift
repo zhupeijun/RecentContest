@@ -91,15 +91,19 @@ class DetailViewController: UIViewController {
                 var hours = 0
                 var minutes = 0
                 
-                if(interval > 0) {
+                let notificationTime = NotificationTime.getNotificationTime() * 60
+                if (interval < notificationTime) {
+                    // if the contes tis expired or less then the notification time,
+                    // then disable the notification switcher
+                    disableSwitcher()
+                }
+                
+                if (interval > 0) {
                     days = interval / 86400
                     interval = interval - days * 86400
                     hours = interval / 3600
                     interval = interval - hours * 3600
                     minutes = interval / 60
-                } else {
-                    // if the contes tis expired, then disable the notification switcher
-                    disableSwitcher()
                 }
                 
                 self.daysLabel.text = String(days)

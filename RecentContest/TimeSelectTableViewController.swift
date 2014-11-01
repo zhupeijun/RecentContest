@@ -18,12 +18,7 @@ class TimeSelectTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        currentTimeValue = NotificationTime.getNotificationTime()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,14 +42,7 @@ class TimeSelectTableViewController: UITableViewController {
         let row = indexPath.row
         
         var minutes = times[row]
-        var hours = minutes / 60
-        minutes = minutes - hours * 60
-        
-        var timeText = ""
-        if (hours != 0) {
-            timeText += "\(hours) Hours "
-        }
-        timeText += "\(minutes) Mins"
+        var timeText = TimeString.toString(minutes)
         
         var cell = tableView.dequeueReusableCellWithIdentifier(kTimeCell) as UITableViewCell
         
@@ -65,5 +53,12 @@ class TimeSelectTableViewController: UITableViewController {
         checkView?.hidden = !(currentTimeValue == times[row])
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var row = indexPath.row
+        var minutes = times[row]
+        NotificationTime.setNotificationTime(minutes)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
