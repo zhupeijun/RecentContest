@@ -11,6 +11,7 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,6 +20,10 @@ class SettingsTableViewController: UITableViewController {
         var currentNotificationTime = NotificationTime.getNotificationTime()
         var timeText = TimeString.toString(currentNotificationTime)
         timeLabel.text = timeText
+        
+        // Setup version number
+        var versionName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as NSString
+        versionLabel.text = versionName
     }
 
     override func didReceiveMemoryWarning() {

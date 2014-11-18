@@ -320,9 +320,21 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cL-rr-Im8">
+                                                    <rect key="frame" x="487" y="11" width="100" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="D9u-3B-fjb"/>
+                                                        <constraint firstAttribute="height" constant="21" id="rA9-NC-c9X"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="9cL-rr-Im8" secondAttribute="centerY" id="2ol-AJ-2fO"/>
                                                 <constraint firstAttribute="centerY" secondItem="MVp-y7-ybr" secondAttribute="centerY" id="ULy-aB-P9v"/>
+                                                <constraint firstItem="9cL-rr-Im8" firstAttribute="trailing" secondItem="TXw-GQ-XO9" secondAttribute="trailingMargin" constant="-5" id="WnT-PE-cOD"/>
                                                 <constraint firstItem="MVp-y7-ybr" firstAttribute="leading" secondItem="TXw-GQ-XO9" secondAttribute="leadingMargin" constant="5" id="nCf-oI-EZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -337,6 +349,7 @@
                     </tableView>
                     <connections>
                         <outlet property="timeLabel" destination="Lgv-LI-Wr6" id="hT7-gZ-enQ"/>
+                        <outlet property="versionLabel" destination="9cL-rr-Im8" id="ASs-C6-P4H"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HP-82-phu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,6 +508,18 @@ CgoKA
                                         <string key="content">
 
 You can check the source code of this app in the github. </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="https://github.com/zhupeijun/RecentContest.git">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
