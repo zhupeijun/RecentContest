@@ -16,8 +16,6 @@ class DetailViewController: UIViewController {
 
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var ojLabel: UILabel!
-    @IBOutlet weak var accessLabel: UILabel!
     @IBOutlet weak var daysView: UIView!
     @IBOutlet weak var hoursView: UIView!
     @IBOutlet weak var minutesView: UIView!
@@ -80,8 +78,6 @@ class DetailViewController: UIViewController {
     func updateContestInfo() {
         if(contest != nil) {
             titleLabel.text = contest!.name
-            ojLabel.text = contest!.oj
-            accessLabel.text = contest!.access
             
             let startTime = contest!.getStartDateTime()
             if(startTime != nil) {
@@ -150,4 +146,6 @@ class DetailViewController: UIViewController {
         notifyTextLabel.alpha = 0.2
         promoteTextLabel.alpha = 0.2
     }
+    
+    
 }

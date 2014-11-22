@@ -41,5 +41,11 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var section = indexPath.section
+        var row = indexPath.row
+        if(section == 1 && row == 1) { // Review the app
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://itunes.apple.com/app/id887773275")!)
+        }
     }
 }
