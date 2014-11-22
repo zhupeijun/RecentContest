@@ -61,7 +61,9 @@ class DetailViewController: UIViewController {
     }
     @IBAction func enableNotification(sender: AnyObject) {
         if(switcher.on == true) {
-            scheduleNotification()
+            if(!scheduleNotification()) {
+                switcher.on = false
+            }
         } else {
             cancelNotification()
         }
@@ -109,21 +111,28 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func scheduleNotification() {
+    func scheduleNotification() -> Bool {
         if(contest != nil) {
             let startDateTime = contest!.getStartDateTime()
             if(startDateTime != nil) {
-                var notification = UILocalNotification()
-                notification.fireDate = startDateTime
-                notification.timeZone = NSTimeZone.localTimeZone()
-                notification.alertBody = contest!.name
-                notification.alertAction = "Open"
-                notification.soundName = UILocalNotificationDefaultSoundName
-                notification.userInfo = contest!.toUserInfo()
-                println(notification.userInfo)
-                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                var delay = NotificationTime.getNotificationTime() * -60
+                startDateTime!.dateByAddingTimeInterval(NSTimeInterval(delay))
+                var current = NSDate()
+                if(startDateTime!.timeIntervalSinceDate(current) > 0) {
+                    var notification = UILocalNotification()
+                    notification.fireDate = startDateTime
+                    notification.timeZone = NSTimeZone.localTimeZone()
+                    notification.alertBody = contest!.name
+                    notification.alertAction = "Open"
+                    notification.soundName = UILocalNotificationDefaultSoundName
+                    notification.userInfo = contest!.toUserInfo()
+                    println(notification.userInfo)
+                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                    return true
+                }
             }
         }
+        return false
     }
     
     func cancelNotification() {
@@ -149,6 +158,4 @@ class DetailViewController: UIViewController {
         hoursView.alpha = 0.2
         minutesView.alpha = 0.2
     }
-    
-    
 }
