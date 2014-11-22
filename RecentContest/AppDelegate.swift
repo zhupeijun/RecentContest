@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 let kLocalNotificationUpdate = "kLocalNotificationUpdate"
 
@@ -20,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
             application.registerUserNotificationSettings( UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
         }
-    
+            
+        // Crashlytics
+        Crashlytics.startWithAPIKey("98ba81b74047d8148ec69bc2246b0b5aed97e6a8")
         return true
     }
 

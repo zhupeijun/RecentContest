@@ -12,6 +12,7 @@
 		2126267F19F2C8E000031096 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2126267E19F2C8E000031096 /* DetailViewController.swift */; };
 		212F05201A04FE0200BC1CE4 /* TimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F051F1A04FE0200BC1CE4 /* TimeString.swift */; };
 		212F05221A05056100BC1CE4 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F05211A05056100BC1CE4 /* NotificationTime.swift */; };
+		2145D9061A20C5FA007D7BFD /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2145D9051A20C5FA007D7BFD /* Crashlytics.framework */; };
 		215789F919BB4B7800EC4DAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215789F819BB4B7800EC4DAE /* AppDelegate.swift */; };
 		215789FE19BB4B7800EC4DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215789FC19BB4B7800EC4DAE /* Main.storyboard */; };
 		21578A0019BB4B7800EC4DAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215789FF19BB4B7800EC4DAE /* Images.xcassets */; };
@@ -41,6 +42,7 @@
 		2126267E19F2C8E000031096 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		212F051F1A04FE0200BC1CE4 /* TimeString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeString.swift; path = Model/TimeString.swift; sourceTree = "<group>"; };
 		212F05211A05056100BC1CE4 /* NotificationTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTime.swift; path = Model/NotificationTime.swift; sourceTree = "<group>"; };
+		2145D9051A20C5FA007D7BFD /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		215789F319BB4B7800EC4DAE /* RecentContest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecentContest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215789F719BB4B7800EC4DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215789F819BB4B7800EC4DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2145D9061A20C5FA007D7BFD /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		2145D9041A20C5EC007D7BFD /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				2145D9051A20C5FA007D7BFD /* Crashlytics.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		215789EA19BB4B7800EC4DAE = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +130,7 @@
 		215789F519BB4B7800EC4DAE /* RecentContest */ = {
 			isa = PBXGroup;
 			children = (
+				2145D9041A20C5EC007D7BFD /* Framework */,
 				2126268019F3C67800031096 /* Resources */,
 				2126267D19F2C8B800031096 /* ViewController */,
 				21D8378319EEB9A000D1B559 /* Model */,
@@ -184,6 +196,7 @@
 				215789EF19BB4B7800EC4DAE /* Sources */,
 				215789F019BB4B7800EC4DAE /* Frameworks */,
 				215789F119BB4B7800EC4DAE /* Resources */,
+				2145D9021A20C572007D7BFD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -277,6 +290,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2145D9021A20C572007D7BFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 98ba81b74047d8148ec69bc2246b0b5aed97e6a8 38a6a50a5e7802127bc553e9bca76c182a872376fcf2050d3a50b7136f38c390";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		215789EF19BB4B7800EC4DAE /* Sources */ = {
@@ -409,6 +438,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RecentContest/Framework",
+				);
 				INFOPLIST_FILE = RecentContest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,11 +458,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Peijun Zhu (QR8687DF9T)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Peijun Zhu (QR8687DF9T)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RecentContest/Framework",
+				);
 				INFOPLIST_FILE = RecentContest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9BCE687F-9FA0-41BA-A64A-B1A6F2A81C09";
+				PROVISIONING_PROFILE = "7530EFB9-DF5E-4D14-8D57-10DC1A9521EF";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
