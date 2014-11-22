@@ -145,6 +145,9 @@ class DetailViewController: UIViewController {
         switcher.alpha = 0.2
         notifyTextLabel.alpha = 0.2
         promoteTextLabel.alpha = 0.2
+        daysView.alpha = 0.2
+        hoursView.alpha = 0.2
+        minutesView.alpha = 0.2
     }
     
     
