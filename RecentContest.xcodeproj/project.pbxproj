@@ -41,7 +41,6 @@
 		2126267E19F2C8E000031096 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		212F051F1A04FE0200BC1CE4 /* TimeString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeString.swift; path = Model/TimeString.swift; sourceTree = "<group>"; };
 		212F05211A05056100BC1CE4 /* NotificationTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTime.swift; path = Model/NotificationTime.swift; sourceTree = "<group>"; };
-		2145D9011A20B9BA007D7BFD /* RecentContest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RecentContest.entitlements; sourceTree = "<group>"; };
 		215789F319BB4B7800EC4DAE /* RecentContest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecentContest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		215789F719BB4B7800EC4DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215789F819BB4B7800EC4DAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 		215789F519BB4B7800EC4DAE /* RecentContest */ = {
 			isa = PBXGroup;
 			children = (
-				2145D9011A20B9BA007D7BFD /* RecentContest.entitlements */,
 				2126268019F3C67800031096 /* Resources */,
 				2126267D19F2C8B800031096 /* ViewController */,
 				21D8378319EEB9A000D1B559 /* Model */,
