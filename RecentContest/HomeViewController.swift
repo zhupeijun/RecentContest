@@ -124,7 +124,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let dateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: today)
         let weekDay = dateComponents.weekday
         
-        let weekName = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SAN"]
+        let weekName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
         let weekString = weekName[weekDay - 1]
         
         self.currentTimeLabel.text = dateString
