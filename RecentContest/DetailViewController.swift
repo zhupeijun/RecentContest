@@ -107,6 +107,12 @@ class DetailViewController: UIViewController {
                 self.daysLabel.text = String(days)
                 self.hoursLabel.text = String(hours)
                 self.minutesLabel.text = String(minutes)
+                
+                if(isNotificationExist()) {
+                    self.switcher.on = true
+                } else {
+                    self.switcher.on = false;
+                }
             }
         }
     }
@@ -136,17 +142,37 @@ class DetailViewController: UIViewController {
     }
     
     func cancelNotification() {
+        let identifier = self.contest?.id
+        if(identifier != nil) {
+            let notification = getNotification(identifier!)
+            if(notification != nil) {
+                UIApplication.sharedApplication().cancelLocalNotification(notification!)
+            }
+        }
+    }
+    
+    func isNotificationExist() -> Bool {
+        let identifier = self.contest?.id
+        if(identifier != nil) {
+            let notification = getNotification(identifier!)
+            return notification != nil
+        }
+        return false
+    }
+    
+    func getNotification(identifier: String) -> UILocalNotification? {
         let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
         for item in notifications {
             let notification = item as UILocalNotification
             let userInfo = notification.userInfo
             if(userInfo != nil) {
                 let contest = Contest(dic: userInfo!)
-                if(self.contest != nil && self.contest!.id == contest.id) {
-                    UIApplication.sharedApplication().cancelLocalNotification(notification)
+                if(identifier == contest.id) {
+                    return notification
                 }
             }
         }
+        return nil
     }
     
     func disableSwitcher() {
