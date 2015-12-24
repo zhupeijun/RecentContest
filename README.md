@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zhupeijun/RecentContest.svg?branch=master)](https://travis-ci.org/zhupeijun/RecentContest)
+
 ## About This App
 Recent Contest is a app that lists the recent ACM contest information from most all of the online judge. Such as topcoder, codeforces, codechef, hduoj, hustoj and so on. The data is provied by acmicpc. The time is Chinese local time.
 
