@@ -17,39 +17,43 @@ class UrlConnection: NSObject {
     }
     
     func getUrlData() -> NSData? {
-        var request = NSURLRequest(URL: NSURL(string: url)!)
-        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
-        var error: NSErrorPointer = nil
-        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error: error)
+        let request = NSURLRequest(URL: NSURL(string: url)!)
+        let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
+        let error: NSErrorPointer = nil
+        var data: NSData?
+        do {
+            data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: response)
+        } catch let error1 as NSError {
+            error.memory = error1
+            data = nil
+        }
         if(error != nil) {
-            println("[ERROR] Can not get the data from the url.\(error)")
+            print("[ERROR] Can not get the data from the url.\(error)")
         }
         return data
     }
     
     func getJSONObject() -> NSDictionary? {
-        var data = getUrlData()
+        let data = getUrlData()
         if (data != nil) {
-            var error: NSErrorPointer = nil
-            let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: error) as NSDictionary
-            if(error == nil) {
+            do {
+                let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
                 return jsonResult
-            } else {
-                println("[ERROR] Can not parse the JSON result to JSONObject. \(error)")
+            } catch {
+                print("[ERROR] Can not parse the JSON result to JSONObject.")
             }
         }
         return nil
     }
     
     func getJSONArray() -> NSArray? {
-        var data = getUrlData()
+        let data = getUrlData()
         if (data != nil) {
-            var error: NSErrorPointer = nil
-            let jsonResult: NSArray = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: error) as NSArray
-            if(error == nil) {
+            do {
+            let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! NSArray
                 return jsonResult
-            } else {
-                println("[ERROR] Can not parse the JSON result to JSONArray. \(error)")
+            } catch {
+                print("[ERROR] Can not parse the JSON result to JSONArray.")
             }
         }
         return nil
@@ -57,7 +61,7 @@ class UrlConnection: NSObject {
     
     func getJSONObjectAsync(callback: NSDictionary? -> Void) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var object = self.getJSONObject()
+            let object = self.getJSONObject()
             dispatch_async(dispatch_get_main_queue(), {
                 callback(object)
             })
@@ -66,7 +70,7 @@ class UrlConnection: NSObject {
     
     func getJSONArrayAsync(callback: NSArray? -> Void) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var array = self.getJSONArray()
+            let array = self.getJSONArray()
             dispatch_async(dispatch_get_main_queue(), {
                 callback(array)
             })

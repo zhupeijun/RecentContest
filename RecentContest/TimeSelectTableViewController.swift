@@ -41,23 +41,23 @@ class TimeSelectTableViewController: UITableViewController {
         
         let row = indexPath.row
         
-        var minutes = times[row]
-        var timeText = TimeString.toString(minutes)
+        let minutes = times[row]
+        let timeText = TimeString.toString(minutes)
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(kTimeCell) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(kTimeCell)!
         
-        var timeTextView = cell.viewWithTag(kTimeTextViewTag) as UILabel?
+        let timeTextView = cell.viewWithTag(kTimeTextViewTag) as! UILabel?
         timeTextView?.text = timeText
         
-        var checkView = cell.viewWithTag(kCheckIconViewTag) as UIImageView?
+        let checkView = cell.viewWithTag(kCheckIconViewTag) as! UIImageView?
         checkView?.hidden = !(currentTimeValue == times[row])
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var row = indexPath.row
-        var minutes = times[row]
+        let row = indexPath.row
+        let minutes = times[row]
         NotificationTime.setNotificationTime(minutes)
         self.navigationController?.popViewControllerAnimated(true)
     }

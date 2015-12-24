@@ -9,9 +9,9 @@
 import UIKit
 
 class TimeString: NSObject {
-    class func toString(minutes: NSInteger) -> NSString {
-        var hours = minutes / 60
-        var minutes = minutes - hours * 60
+    class func toString(minutes: NSInteger) -> String {
+        let hours = minutes / 60
+        let minutes = minutes - hours * 60
         var result = ""
         if(hours != 0) {
             result += "\(hours) Hour"

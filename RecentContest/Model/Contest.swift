@@ -24,20 +24,20 @@ class Contest: NSObject {
     }
 
     init (dic: NSDictionary) {
-        access = dic[kAccess] as String
-        id = dic[kId] as String
-        link = dic[kLink] as String
-        name = dic[kName] as String
-        oj = dic[kOj] as String
-        startTime = dic[kStartTime] as String
-        week = dic[kWeek] as String
+        access = dic[kAccess] as! String
+        id = dic[kId] as! String
+        link = dic[kLink] as! String
+        name = dic[kName] as! String
+        oj = dic[kOj] as! String
+        startTime = dic[kStartTime] as! String
+        week = dic[kWeek] as! String
         if(access == "") {
             access = "Public"
         }
     }
     
     func toUserInfo() -> NSDictionary {
-        var userInfo = NSMutableDictionary()
+        let userInfo = NSMutableDictionary()
         userInfo.setValue(access, forKey: kAccess)
         userInfo.setValue(id, forKey: kId)
         userInfo.setValue(link, forKey: kLink)
@@ -49,7 +49,7 @@ class Contest: NSObject {
     }
     
     func getStartDateTime() -> NSDate? {
-        var dateFormater = NSDateFormatter()
+        let dateFormater = NSDateFormatter()
         dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let startDateTime = dateFormater.dateFromString(startTime)
         return startDateTime

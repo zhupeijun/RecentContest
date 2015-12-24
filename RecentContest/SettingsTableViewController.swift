@@ -17,12 +17,12 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        var currentNotificationTime = NotificationTime.getNotificationTime()
-        var timeText = TimeString.toString(currentNotificationTime)
-        timeLabel.text = timeText
+        let currentNotificationTime = NotificationTime.getNotificationTime()
+        let timeText = TimeString.toString(currentNotificationTime)
+        timeLabel.text = timeText as String
         
         // Setup version number
-        var versionName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as NSString
+        let versionName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
         versionLabel.text = versionName
     }
 
@@ -42,8 +42,8 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        var section = indexPath.section
-        var row = indexPath.row
+        let section = indexPath.section
+        let row = indexPath.row
         if(section == 1 && row == 1) { // Review the app
             UIApplication.sharedApplication().openURL(NSURL(string: "http://itunes.apple.com/app/id887773275")!)
         }

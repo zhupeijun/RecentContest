@@ -70,7 +70,7 @@ class DetailViewController: UIViewController {
     }
     
     func localNotificationUpdate(notification: NSNotification) {
-        let userInfo = notification.object as NSDictionary?
+        let userInfo = notification.object as! NSDictionary?
         if(userInfo != nil) {
             contest = Contest(dic: userInfo!)
             updateContestInfo()
@@ -83,7 +83,7 @@ class DetailViewController: UIViewController {
             
             let startTime = contest!.getStartDateTime()
             if(startTime != nil) {
-                var current = NSDate()
+                let current = NSDate()
                 var interval = Int(startTime!.timeIntervalSinceDate(current))
                 var days = 0
                 var hours = 0
@@ -121,18 +121,18 @@ class DetailViewController: UIViewController {
         if(contest != nil) {
             let startDateTime = contest!.getStartDateTime()
             if(startDateTime != nil) {
-                var delay = NotificationTime.getNotificationTime() * -60
+                let delay = NotificationTime.getNotificationTime() * -60
                 startDateTime!.dateByAddingTimeInterval(NSTimeInterval(delay))
-                var current = NSDate()
+                let current = NSDate()
                 if(startDateTime!.timeIntervalSinceDate(current) > 0) {
-                    var notification = UILocalNotification()
+                    let notification = UILocalNotification()
                     notification.fireDate = startDateTime
                     notification.timeZone = NSTimeZone.localTimeZone()
                     notification.alertBody = contest!.name
                     notification.alertAction = "Open"
                     notification.soundName = UILocalNotificationDefaultSoundName
-                    notification.userInfo = contest!.toUserInfo()
-                    println(notification.userInfo)
+                    notification.userInfo = contest!.toUserInfo() as [NSObject : AnyObject]
+                    print(notification.userInfo)
                     UIApplication.sharedApplication().scheduleLocalNotification(notification)
                     return true
                 }
@@ -162,13 +162,15 @@ class DetailViewController: UIViewController {
     
     func getNotification(identifier: String) -> UILocalNotification? {
         let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
-        for item in notifications {
-            let notification = item as UILocalNotification
-            let userInfo = notification.userInfo
-            if(userInfo != nil) {
-                let contest = Contest(dic: userInfo!)
-                if(identifier == contest.id) {
-                    return notification
+        if notifications != nil {
+            for item in notifications! {
+                let notification = item as UILocalNotification
+                let userInfo = notification.userInfo
+                if(userInfo != nil) {
+                    let contest = Contest(dic: userInfo!)
+                    if(identifier == contest.id) {
+                        return notification
+                    }
                 }
             }
         }
